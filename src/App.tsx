@@ -10,7 +10,7 @@ import { Login } from "./pages/Login";
 
 const App: React.FC = () => {
   return (
-    <Router basename="/">
+    <Router basename="/todo">
       <CssBaseline />
       <FirebaseProvider>
         <Switch>
