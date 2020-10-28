@@ -8,7 +8,10 @@ interface AuthGuardProps extends RouteProps {
   redirect: string;
 }
 const AuthGuard: React.FC<AuthGuardProps> = ({ secure, redirect, ...rest }) => {
-  const { user } = useContext(FirebaseContext);
+  const {
+    userProps: { user, loading },
+  } = useContext(FirebaseContext);
+  if (loading) return <div>loading...</div>;
   return (!!user && secure) || (!user && !secure) ? (
     <Route {...rest} />
   ) : (
